@@ -18,4 +18,3 @@ def scan():
         else:
             print(f"Port {common_port[_]} is close")
         s.close()
-#lmao
