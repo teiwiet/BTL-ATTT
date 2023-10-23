@@ -9,7 +9,6 @@ def scan():
     for lmao in range(len(common_port)):
         common_port[lmao] = int(common_port[lmao])
     print(common_port)
-
     for _ in range(len(common_port)):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         result = s.connect_ex((ip, common_port[_]))
@@ -18,3 +17,4 @@ def scan():
         else:
             print(f"Port {common_port[_]} is close")
         s.close()
+scan()
