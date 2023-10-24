@@ -14,7 +14,7 @@ def scan():
         result = s.connect_ex((ip, common_port[_]))
         if result == 0:
             print(f"Port {common_port[_]} is open")
-        else:
-            print(f"Port {common_port[_]} is close")
+        # else:
+        #     print(f"Port {common_port[_]} is close")
         s.close()
 scan()

