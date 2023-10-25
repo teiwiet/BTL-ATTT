@@ -8,7 +8,7 @@ def scan():
         ip = socket.gethostbyname(parsed_url.hostname)
     for lmao in range(len(common_port)):
         common_port[lmao] = int(common_port[lmao])
-    print(common_port)
+    # print(common_port)
     for _ in range(len(common_port)):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         result = s.connect_ex((ip, common_port[_]))
